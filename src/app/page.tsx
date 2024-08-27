@@ -1,3 +1,4 @@
+import Pagination from "@/components/pagination";
 import CardsGrid from "./CardsGrid";
 
 export default async function Home() {
@@ -12,8 +13,8 @@ export default async function Home() {
         <a href="#" className="md:w-[25%] text-start md:text-end text-sm text-blue-500 hover:underline underline-offset-2 transition">See all</a>
       </div>
 
-      {/* collections */}
       <CardsGrid />
+      <Pagination />
     </div>
   );
 }
