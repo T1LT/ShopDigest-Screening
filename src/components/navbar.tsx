@@ -1,0 +1,33 @@
+import Button from "./button";
+
+export default function Navbar() {
+  return (
+    <div className="bg-white flex items-center justify-between border-b px-8 py-4 sticky top-0">
+      {/* navbar left side */}
+      <div className="flex items-center gap-2">
+        <h1 className="font-bold text-2xl text-purple-700">ShopDigest</h1>
+        <p className="text-neutral-200 font-light">|</p>
+        <select className="font-semibold text-neutral-600 focus:outline-0">
+          <option value="shopify">Shopify</option>
+          <option value="wordpress">Wordpress</option>
+          <option value="bigcommerce">Bigcommerce</option>
+        </select>
+      </div>
+
+      {/* navbar middle */}
+      <div className="flex items-center gap-8 font-semibold text-neutral-700">
+        <a href="#" className="hover:text-purple-600 transition">Features</a>
+        <a href="#" className="hover:text-purple-600 transition">Marketplace</a>
+        <a href="#" className="hover:text-purple-600 transition">Company</a>
+        <a href="#" className="hover:text-purple-600 transition">Team</a>
+        <a href="#" className="hover:text-purple-600 transition">Contact</a>
+      </div>
+
+      {/* navbar right side */}
+      <div className="flex gap-3">
+        <Button label="Login" type="primary" />
+        <Button label="Add post" type="secondary" />
+      </div>
+    </div>
+  );
+}
