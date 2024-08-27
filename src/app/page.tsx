@@ -15,8 +15,8 @@ export default function Home() {
 
       {/* cards grid */}
       <div className="grid grid-cols-5 gap-6">
-        {Array.from(Array(10).keys()).map((_, idx) => (
-          <div className="p-4 h-[300px] w-[275px] flex flex-col gap-2 border rounded-lg divide-y" key={idx}>
+        {Array.from(Array(20).keys()).map((_, idx) => (
+          <div className="p-4 h-[300px] w-[275px] flex flex-col gap-2 justify-between border rounded-lg divide-y" key={idx}>
             <div>
               <h1 className="font-bold">Lorem Ipsum</h1>
               <p className="text-sm text-neutral-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed vestibulum turpis. Duis luctus gravida.</p>
@@ -26,9 +26,9 @@ export default function Home() {
                 <Image src="/logos/twitter.png" alt="twitter logo" height={32} width={32} className="rounded-lg" />
               </div>
             </div>
-            <div className="flex items-center justify-between py-2">
+            <div className="flex items-center justify-between pt-2">
               <span className="text-sm text-purple-600 font-medium">104 Apps</span>
-              <button className="flex items-center gap-2 px-2.5 py-1 text-xs bg-black text-white rounded-full hover:bg-neutral-700 transition">
+              <button className="flex items-center gap-2 px-2.5 py-1.5 text-xs bg-black text-white rounded-full hover:bg-neutral-700 transition">
                 Explore more
                 <ArrowRight className="h-3 w-3" />
               </button>
