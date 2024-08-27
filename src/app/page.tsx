@@ -1,3 +1,5 @@
+import Button from "@/components/button";
+
 export default function Home() {
   return (
     <div className="flex items-center justify-between border-b px-8 py-4">
@@ -23,13 +25,8 @@ export default function Home() {
 
       {/* navbar right side */}
       <div className="flex gap-3">
-        <button className="px-5 py-1.5 font-semibold border border-purple-600 rounded-lg text-purple-600">Login</button>
-        <button className="px-5 py-1.5 font-semibold border border-purple-600 bg-purple-600 rounded-lg text-white">
-          <div className="flex items-center gap-2">
-            <span>Add post</span>
-            <span>&rarr;</span>
-          </div>
-        </button>
+        <Button label="Login" type="primary" />
+        <Button label="Add post" type="secondary" />
       </div>
     </div>
   );
