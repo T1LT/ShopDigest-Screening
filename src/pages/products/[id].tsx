@@ -1,12 +1,9 @@
+import { Collection } from "@/app/CardsGrid";
 import { ChevronDown, ChevronRight, CircleDollarSign, House, Info, SlidersHorizontal, Square, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function ProductPage({ params }: { params: { id: number } }) {
-  const { id } = params;
-  const res = await fetch(`https://fakestoreapi.com/products/${id}`);
-  const product = await res.json();
-
+export default function ProductPage({ product }: { product: Collection }) {
   // ideally, proper checks for product + skeletons
   // suspense is a good alternative
   if (!product) return <></>;
@@ -134,6 +131,7 @@ export default async function ProductPage({ params }: { params: { id: number } }
                       </div>
                       <div>
                         <h2 className="font-semibold text-sm">Launch Date</h2>
+                        {/* convert date to dd MMM YY format */}
                         <p>{(new Date()).toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "2-digit" })}</p>
                       </div>
                     </div>
@@ -173,4 +171,27 @@ export default async function ProductPage({ params }: { params: { id: number } }
       </div>
     </div>
   );
+}
+
+export async function getStaticPaths() {
+  const res = await fetch("https://fakestoreapi.com/products");
+  const products = await res.json();
+
+  const paths = products.map((product: Collection) => ({
+    params: { id: product.id.toString() },
+  }));
+
+  return { paths, fallback: false };
+}
+
+// using ISR for this page as reviews/ratings get updated frequently
+export async function getStaticProps({ params }: { params: { id: number } }) {
+  const res = await fetch(`https://fakestoreapi.com/products/${params.id}`);
+  const product = await res.json();
+  
+  return {
+    props: { product },
+    // revalidate every 10 mins
+    revalidate: 6000,
+  };
 }

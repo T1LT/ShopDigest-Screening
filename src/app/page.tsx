@@ -1,7 +1,7 @@
 import Pagination from "@/components/pagination";
 import CardsGrid from "./CardsGrid";
 
-export default async function Home() {
+export default function Home() {
   return (
     <div className="px-8 py-4 xl:px-20 xl:py-12 flex flex-col gap-4 md:gap-6">
       {/* top section */}
