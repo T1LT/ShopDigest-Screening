@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 type Collection = {
   id: number;
@@ -15,6 +18,8 @@ type Collection = {
 };
 
 export default function Card({ collection }: { collection: Collection }) {
+  const router = useRouter();
+
   return (
     <div className="h-[250px] p-4 flex flex-col justify-between border rounded-lg">
       <div className="flex flex-col gap-2 mb-4">
@@ -29,7 +34,10 @@ export default function Card({ collection }: { collection: Collection }) {
         </div>
         <div className="flex items-center justify-between pt-3">
           <span className="text-sm text-purple-600 font-medium">{collection.rating.count} Apps</span>
-          <button className="flex items-center gap-2 px-2.5 py-1.5 text-xs bg-black text-white rounded-full hover:bg-neutral-700 transition">
+          <button 
+            className="flex items-center gap-2 px-2.5 py-1.5 text-xs bg-black text-white rounded-full hover:bg-neutral-700 transition"
+            onClick={() => router.push(`/products/${collection.id}`)}
+          >
             Explore more
             <ArrowRight className="h-3 w-3" />
           </button>
