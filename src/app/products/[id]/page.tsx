@@ -63,9 +63,9 @@ export default async function ProductPage({ params }: { params: { id: number } }
               </button>
 
               <div className="hidden xl:flex items-center rounded-full border-2 divide-x-2">
-                <span className="pl-3 pr-2 py-1 hover:bg-neutral-100 transition cursor-pointer">1st</span>
+                <span className="pl-3 pr-2 py-1 hover:bg-neutral-100 transition rounded-l-full cursor-pointer">1st</span>
                 <span className="px-2 py-1 hover:bg-neutral-100 transition cursor-pointer">2nd</span>
-                <span className="pl-2 pr-3 py-1 hover:bg-neutral-100 transition cursor-pointer">3rd+</span>
+                <span className="pl-2 pr-3 py-1 hover:bg-neutral-100 transition rounded-r-full cursor-pointer">3rd+</span>
               </div>
 
               <button className="hidden 2xl:flex px-3 py-1 items-center gap-1 rounded-full border-2 hover:bg-neutral-100 transition">
@@ -90,8 +90,9 @@ export default async function ProductPage({ params }: { params: { id: number } }
         <div className="flex justify-center">
           <div className="w-[90%] md:w-[80%] flex flex-col gap-2">
             <div className="p-4 lg:p-6 flex flex-col lg:flex-row justify-between gap-6 border rounded-md">
-              <center className="min-w-[200px] flex items-center justify-center">
+              <center className="min-w-[200px] h-auto flex items-center justify-center">
                 {/* show blurred image while loading */}
+                {/* ideally the image width and height come in through the api for the image to not jump upon load */}
                 <Image src={product.image} alt={product.title} width={200} height={300} />
               </center>
               {/* middle section */}
